@@ -1,0 +1,108 @@
+/* Обнуление стилей браузера */
+@import "normalize.css";
+@import "reset.css";
+
+* {
+    box-sizing: border-box;
+}
+
+/* Подключение шрифтов */
+@font-face {
+    font-family: "Yeseva-One";
+    src: url("/fonts/YesevaOne-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Nunito-Sans";
+    src: url("/fonts/NunitoSans-Regular.ttf");
+}
+
+/* Стили для главной секции */
+.main {
+    max-width: 90rem;
+    min-height: 48.9375rem;
+    background-color: #131313;
+    margin: 0 auto;
+    padding: 6.6875rem 8.409375rem 7.8125rem 8.403125rem;
+}
+
+.main__wrapper {
+    display: flex;
+    gap: 3.125rem;
+}
+
+.main__text-info__header {
+    max-width: 15.8125rem;
+    font-size: 1.6875rem;
+    font-family: Yeseva-One;
+    line-height: 2.3125rem;
+    color: #e3b873;
+    text-transform: uppercase;
+    margin: 3.8125rem 0 2.125rem 0;
+}
+
+.main__text-info {
+    max-width: 27.625rem;
+}
+
+.main__text-info__text {
+    font-family: Nunito-Sans;
+    font-size: 0.875rem;
+    line-height: 1.6875rem;
+    color: #ffffff;
+    margin-bottom: 2.625rem;
+}
+
+.main__appartment-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.main__appartment-subtitle {
+    font-size: 1.125rem;
+    color: #e3b873;
+    font-family: Yeseva-One;
+    line-height: 1.5625rem;
+    text-transform: uppercase;
+}
+
+.main__appartment-info {
+    font-family: Nunito-Sans;
+    font-size: 0.8125rem;
+    line-height: 1.3125rem;
+    color: #ffffff;
+}
+
+.main__slider-switcher {
+    display: flex;
+    max-width: 12.855rem;
+    justify-content: space-between;
+}
+
+.main__prev-arrow,
+.main__next-arrow,
+.main__circle-img {
+    cursor: pointer;
+}
+
+.main__slider__list {
+    display: flex;
+    gap: 3.78125rem;
+    margin-bottom: 2.8125rem;
+    margin-right: 3.5rem;
+}
+
+.main__slider__link {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    font-family: Yeseva-One;
+    line-height: 1.1875rem;
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+}
+
+.main__slider__img {
+    display: block;
+    max-width: 42.4375rem;
+}
