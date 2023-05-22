@@ -38,7 +38,7 @@
     line-height: 2.3125rem;
     color: #e3b873;
     text-transform: uppercase;
-    margin: 3.8125rem 0 2.125rem 0;
+    margin: 4.0025rem 0 2.125rem 0;
     position: relative;
 }
 
@@ -123,19 +123,29 @@
 }
 
 .main__slider__link {
+    display: block;
     font-size: 0.875rem;
     text-transform: uppercase;
     font-family: Yeseva-One;
     line-height: 1.1875rem;
     color: rgba(255, 255, 255, 0.3);
     text-decoration: none;
+    cursor: pointer;
+    padding-bottom: 0.4175rem;
 }
 
 .main__slider__img {
     max-width: 42.4375rem;
     min-height: 30.125rem;
+    transition: 1s;
 }
 
 .active-circle {
     background-color: #fff;
+}
+
+.active-link {
+    color: #e3b873;
+    border-bottom: 1px solid #e3b873;
+    padding-bottom: 0.355rem;
 }

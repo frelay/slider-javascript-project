@@ -34,6 +34,8 @@ setApartmentsInfo(currentIndex);
 // Получаем элементы
 const prevArrow = document.querySelector(".main__prev-arrow");
 const nextArrow = document.querySelector(".main__next-arrow");
+const linksList = document.querySelector(".main__slider__list");
+const sliderSircles = document.querySelector(".main__slider-switcher");
 
 // Функция добавления текста и картинки
 function setApartmentsInfo(index) {
@@ -56,6 +58,33 @@ function setApartmentsInfo(index) {
     apartmentImg.style = `background-image: url(${apartments[index].img});`;
 }
 
+// Функция удаления активности кружков и ссылок
+function removeActive(className, activeClass) {
+    const allItems = document.querySelectorAll("." + className);
+
+    allItems.forEach((item) => {
+        if (item.classList.contains(activeClass)) {
+            item.classList.remove(activeClass);
+        }
+    });
+}
+
+// Функция делает активные кружки и ссылки
+function setActive(e) {
+    const link = "main__slider__link";
+    const circle = "main__circle";
+    let activeClass;
+    if (e.target.classList.contains(link)) {
+        activeClass = "active-link";
+        removeActive(link, activeClass);
+        e.target.classList.add(activeClass);
+    } else if (e.target.classList.contains(circle)) {
+        activeClass = "active-circle";
+        removeActive(circle, activeClass);
+        e.target.classList.add(activeClass);
+    }
+}
+
 // Обработчики для стрелок
 prevArrow.addEventListener("click", () => {
     setApartmentsInfo(currentIndex - 1);
@@ -66,3 +95,9 @@ nextArrow.addEventListener("click", () => {
     setApartmentsInfo(currentIndex + 1);
     currentIndex += 1;
 });
+
+// Обработчик для ссылок
+linksList.addEventListener("click", setActive);
+
+// Обработчик для кружочков
+sliderSircles.addEventListener("click", setActive);
