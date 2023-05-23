@@ -29,6 +29,7 @@ const apartments = [
 ];
 
 let currentIndex = 0;
+const utilClasses = ["admiral", "sochi", "patriotic"];
 setApartmentsInfo(currentIndex);
 
 // Получаем элементы
@@ -49,6 +50,22 @@ function setApartmentsInfo(index) {
         ".main__appartment-repair-cost"
     );
     const apartmentImg = document.querySelector(".main__slider__img");
+    const links = document.querySelectorAll(".main__slider__link");
+    const circles = document.querySelectorAll(".main__circle");
+
+    links.forEach((link) => {
+        if (link.classList.contains(utilClasses[index])) {
+            removeActive("main__slider__link", "active-link");
+            link.classList.add("active-link");
+        }
+    });
+
+    circles.forEach((circle) => {
+        if (circle.classList.contains(utilClasses[index])) {
+            removeActive("main__circle", "active-circle");
+            circle.classList.add("active-circle");
+        }
+    });
 
     // Добавляем текст и картинку
     apartmentCity.lastElementChild.innerHTML = `${apartments[index].city}`;
@@ -69,19 +86,33 @@ function removeActive(className, activeClass) {
     });
 }
 
+// Функция заполняет инфо и картинки по ссылкам и кружкам на которые нажали
+function fillInfoByTarget(e) {
+    if (e.target.classList.contains(utilClasses[0])) {
+        setApartmentsInfo(0);
+    } else if (e.target.classList.contains(utilClasses[1])) {
+        setApartmentsInfo(1);
+    } else if (e.target.classList.contains(utilClasses[2])) {
+        setApartmentsInfo(2);
+    }
+}
+
 // Функция делает активные кружки и ссылки
 function setActive(e) {
     const link = "main__slider__link";
     const circle = "main__circle";
     let activeClass;
+
     if (e.target.classList.contains(link)) {
         activeClass = "active-link";
         removeActive(link, activeClass);
         e.target.classList.add(activeClass);
+        fillInfoByTarget(e);
     } else if (e.target.classList.contains(circle)) {
         activeClass = "active-circle";
         removeActive(circle, activeClass);
         e.target.classList.add(activeClass);
+        fillInfoByTarget(e);
     }
 }
 
